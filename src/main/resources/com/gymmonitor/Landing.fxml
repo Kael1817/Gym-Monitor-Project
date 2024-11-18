@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="762.0" prefWidth="1366.0" style="-fx-border-color: #FFDE59;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gymmonitor.LandingControl">
+    <children>
+        <AnchorPane prefHeight="1120.0" prefWidth="1180.0" style="-fx-background-color: BLACK; -fx-border-color: #FFDE59;">
+            <children>
+                <AnchorPane layoutY="2.0" prefHeight="762.0" prefWidth="261.0" style="-fx-border-color: #FFDE59;">
+                    <children>
+                        <Button fx:id="Alis" layoutX="76.0" layoutY="702.0" mnemonicParsing="false" onAction="#logut" prefHeight="27.0" prefWidth="137.0" style="-fx-background-color: BLACK; -fx-border-color: #FFDE59;" text="LOG OUT" textFill="#ffde59" />
+                        <ImageView fitHeight="394.0" fitWidth="295.0" layoutX="8.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../../Assets/LG3.png" />
+                            </image>
+                        </ImageView>
+                        <Button fx:id="goDashboard" layoutX="70.0" layoutY="300.0" mnemonicParsing="false" onAction="#setGoDashboard" prefHeight="50.0" prefWidth="153.0" style="-fx-background-color: BLACK; -fx-border-color: #FFDE59;" text="DASHBOARD" textFill="#ffde59" />
+                        <Button fx:id="goMembers" layoutX="70.0" layoutY="400.0" mnemonicParsing="false" onAction="#setGoMembers" prefHeight="50.0" prefWidth="153.0" style="-fx-background-color: BLACK; -fx-border-color: #FFDE59;" text="MEMBERS" textFill="#ffde59" />
+                        <Button fx:id="goCoaches" layoutX="70.0" layoutY="500.0" mnemonicParsing="false" onAction="#setGoCoaches" prefHeight="50.0" prefWidth="153.0" style="-fx-background-color: BLACK; -fx-border-color: #FFDE59;" text="COACHES" textFill="#ffde59" />
+                        <Button fx:id="goPayment" layoutX="70.0" layoutY="600.0" mnemonicParsing="false" onAction="#setGoPayment" prefHeight="50.0" prefWidth="153.0" style="-fx-background-color: BLACK; -fx-border-color: #FFDE59;" text="PAYMENT" textFill="#ffde59" />
+                    </children>
+                </AnchorPane>
+                <AnchorPane fx:id="dashboard" layoutX="318.0" layoutY="14.0" prefHeight="742.0" prefWidth="1035.0" style="-fx-border-color: #FFDE59;">
+                    <children>
+                        <TableView layoutX="19.0" layoutY="203.0" prefHeight="524.0" prefWidth="997.0">
+                            <columns>
+                                <TableColumn fx:id="memberNameLabel" prefWidth="664.8000183105469" text="NAME" />
+                                <TableColumn fx:id="expirationLabel" prefWidth="328.79986572265625" text="EXPIRY" />
+                            </columns>
+                        </TableView>
+                        <Pane layoutX="772.0" layoutY="21.0" prefHeight="159.0" prefWidth="239.0" style="-fx-border-color: #FFDE59;">
+                            <children>
+                                <Label layoutX="69.0" layoutY="135.0" text="No. of Coaches" textFill="#ffde59">
+                                    <font>
+                                        <Font name="System Bold" size="14.0" />
+                                    </font>
+                                </Label>
+                            </children>
+                        </Pane>
+                        <Pane layoutX="407.0" layoutY="21.0" prefHeight="159.0" prefWidth="239.0" style="-fx-border-color: #FFDE59;">
+                            <children>
+                                <Label layoutX="66.0" layoutY="135.0" text="No. of Members" textFill="#ffde59">
+                                    <font>
+                                        <Font name="System Bold" size="14.0" />
+                                    </font>
+                                </Label>
+                            </children>
+                        </Pane>
+                        <Pane layoutX="39.0" layoutY="21.0" prefHeight="159.0" prefWidth="239.0" style="-fx-border-color: #FFDE59;">
+                            <children>
+                                <Label layoutX="66.0" layoutY="135.0" text="Today's Income" textFill="#ffde59">
+                                    <font>
+                                        <Font name="System Bold" size="14.0" />
+                                    </font>
+                                </Label>
+                            </children>
+                        </Pane>
+                    </children>
+                </AnchorPane>
+                <AnchorPane fx:id="member" layoutX="318.0" layoutY="14.0" prefHeight="742.0" prefWidth="1035.0" style="-fx-border-color: #FFDE59;" visible="false">
+                    <children>
+                        <Label layoutX="56.0" layoutY="90.0" text="ADD NEW MEMBER" textFill="#ffde59">
+                            <font>
+                                <Font name="System Bold" size="20.0" />
+                            </font>
+                        </Label>
+                        <Label layoutX="41.0" layoutY="172.0" text="NAME :" textFill="#ffde59">
+                            <font>
+                                <Font name="System Bold" size="14.0" />
+                            </font>
+                        </Label>
+                        <TextField fx:id="name" alignment="CENTER" layoutX="101.0" layoutY="170.0" prefHeight="26.0" prefWidth="184.0" promptText="Full Name" style="-fx-border-color: #ffde59;" />
+                        <TableView fx:id="members_table" layoutX="291.0" layoutY="97.0" onMouseClicked="#getSelected" prefHeight="630.0" prefWidth="729.0">
+                            <columns>
+                                <TableColumn fx:id="memberId_col" prefWidth="50.0" text="ID" />
+                                <TableColumn fx:id="memberName_col" minWidth="0.0" prefWidth="126.39996337890625" text="NAME" />
+                                <TableColumn fx:id="memberAddress_col" minWidth="0.0" prefWidth="137.5999755859375" text="ADDRESS" />
+                                <TableColumn fx:id="memberGender_col" prefWidth="100.0" text="GENDER" />
+                                <TableColumn fx:id="memberPhonenum_col" prefWidth="108.0" text="PHONE #" />
+                                <TableColumn fx:id="memberExpiration_col" prefWidth="103.199951171875" text="EXPIRATION" />
+                                <TableColumn fx:id="memberStatus_col" prefWidth="103.199951171875" text="STATUS" />
+                            </columns>
+                        </TableView>
+                        <Label layoutX="31.0" layoutY="209.0" text="ADRESS :" textFill="#ffde59">
+                            <font>
+                                <Font name="System Bold" size="14.0" />
+                            </font>
+                        </Label>
+                        <TextField fx:id="address" alignment="CENTER" layoutX="102.0" layoutY="209.0" prefHeight="50.0" prefWidth="184.0" promptText="Present Address" style="-fx-border-color: #ffde59;" />
+                        <Label layoutX="30.0" layoutY="278.0" text="GENDER :" textFill="#ffde59">
+                            <font>
+                                <Font name="System Bold" size="14.0" />
+                            </font>
+                        </Label>
+                        <Label layoutX="406.0" layoutY="22.0" text="MEMBERS" textFill="#ffde59">
+                            <font>
+                                <Font name="System Bold" size="46.0" />
+                            </font>
+                        </Label>
+                        <ComboBox fx:id="gender" layoutX="102.0" layoutY="274.0" prefHeight="27.0" prefWidth="182.0" promptText="Choose your Gender...." style="-fx-border-color: #ffde59;" />
+                        <Label layoutX="25.0" layoutY="322.0" text="PHONE # :" textFill="#ffde59">
+                            <font>
+                                <Font name="System Bold" size="14.0" />
+                            </font>
+                        </Label>
+                        <TextField fx:id="phonenum" alignment="CENTER" layoutX="101.0" layoutY="318.0" prefHeight="26.0" prefWidth="184.0" promptText="Phone Number" style="-fx-border-color: #ffde59;" />
+                        <Button layoutX="73.0" layoutY="506.0" mnemonicParsing="false" onAction="#addMember" prefHeight="50.0" prefWidth="153.0" style="-fx-background-color: Transparent; -fx-border-color: #ffde59;" text="ADD" textFill="#ffde59" />
+                        <Button layoutX="73.0" layoutY="583.0" mnemonicParsing="false" onAction="#updateMembers" prefHeight="50.0" prefWidth="153.0" style="-fx-border-color: #ffde59; -fx-background-color: transparent;" text="UPDATE" textFill="#ffde59" />
+                        <Button layoutX="73.0" layoutY="666.0" mnemonicParsing="false" onAction="#deleteMember" prefHeight="50.0" prefWidth="153.0" style="-fx-border-color: #ffde59; -fx-background-color: transparent;" text="CLEAR" textFill="#ffde59" />
+                        <DatePicker fx:id="startDate" editable="false" layoutX="101.0" layoutY="362.0" prefHeight="26.0" prefWidth="184.0" promptText="Start of Subscription...." style="-fx-border-color: #ffde59;" />
+                        <DatePicker fx:id="expiration" layoutX="101.0" layoutY="406.0" prefHeight="26.0" prefWidth="184.0" promptText="expiration" style="-fx-border-color: #ffde59;" />
+                        <Label layoutX="10.0" layoutY="366.0" text="START DATE :" textFill="#ffde59">
+                            <font>
+                                <Font name="System Bold" size="13.0" />
+                            </font>
+                        </Label>
+                        <Label layoutX="19.0" layoutY="409.0" text="END DATE :" textFill="#ffde59">
+                            <font>
+                                <Font name="System Bold" size="14.0" />
+                            </font>
+                        </Label>
+                        <Label layoutX="66.0" layoutY="134.0" text="ID :" textFill="#ffde59" visible="false">
+                            <font>
+                                <Font name="System Bold" size="14.0" />
+                            </font>
+                        </Label>
+                        <TextField fx:id="id" alignment="CENTER" editable="false" layoutX="102.0" layoutY="130.0" prefHeight="26.0" prefWidth="184.0" promptText="Full Name" style="-fx-border-color: #ffde59;" text="ID NUMBER" visible="false" />
+                        <Label layoutX="33.0" layoutY="448.0" text="STATUS :" textFill="#ffde59">
+                            <font>
+                                <Font name="System Bold" size="14.0" />
+                            </font>
+                        </Label>
+                        <ComboBox fx:id="memberStatus" layoutX="102.0" layoutY="445.0" prefHeight="26.0" prefWidth="182.0" promptText="Choose yout status...." />
+                    </children>
+                </AnchorPane>
+                <AnchorPane fx:id="coaches" layoutX="318.0" layoutY="14.0" prefHeight="742.0" prefWidth="1035.0" style="-fx-border-color: #FFDE59;" visible="false">
+                    <children>
+                        <Label layoutX="412.0" layoutY="23.0" text="COACHES" textFill="#ffde59">
+                            <font>
+                                <Font name="System Bold" size="46.0" />
+                            </font>
+                        </Label>
+                        <TableView fx:id="coachTable" layoutX="285.0" layoutY="97.0" onMouseClicked="#getSelected_Coach" prefHeight="630.0" prefWidth="735.0">
+                            <columns>
+                                <TableColumn fx:id="coachId_col" prefWidth="42.33331298828125" text="ID" />
+                                <TableColumn fx:id="coachName_col" prefWidth="272.66668701171875" text="NAME" />
+                                <TableColumn fx:id="coachAddress_col" prefWidth="188.0" text="ADDRESS" />
+                                <TableColumn fx:id="coachGender_col" prefWidth="84.0" text="GENDER" />
+                                <TableColumn fx:id="coachPhonenum_col" prefWidth="144.0" text="PHONE #" />
+                                <TableColumn fx:id="coachStatus_col" prefWidth="87.199951171875" text="STATUS" />
+                            </columns>
+                        </TableView>
+                        <Label layoutX="54.0" layoutY="128.0" text="ADD NEW COACH" textFill="#ffde59">
+                            <font>
+                                <Font name="System Bold" size="20.0" />
+                            </font>
+                        </Label>
+                        <Label layoutX="30.0" layoutY="218.0" text="NAME :" textFill="#ffde59">
+                            <font>
+                                <Font name="System Bold" size="14.0" />
+                            </font>
+                        </Label>
+                        <Label layoutX="21.0" layoutY="260.0" text="ADRESS :" textFill="#ffde59">
+                            <font>
+                                <Font name="System Bold" size="14.0" />
+                            </font>
+                        </Label>
+                        <Label layoutX="16.0" layoutY="332.0" text="GENDER :" textFill="#ffde59">
+                            <font>
+                                <Font name="System Bold" size="14.0" />
+                            </font>
+                        </Label>
+                        <TextField fx:id="coachName" alignment="CENTER" layoutX="85.0" layoutY="215.0" prefHeight="26.0" prefWidth="184.0" promptText="Full Name" />
+                        <Label layoutX="20.0" layoutY="430.0" text="STATUS : " textFill="#ffde59">
+                            <font>
+                                <Font name="System Bold" size="14.0" />
+                            </font>
+                        </Label>
+                        <Label layoutX="11.0" layoutY="382.0" text="PHONE # :" textFill="#ffde59">
+                            <font>
+                                <Font name="System Bold" size="14.0" />
+                            </font>
+                        </Label>
+                        <TextField fx:id="coachAddress" alignment="CENTER" layoutX="87.0" layoutY="260.0" prefHeight="50.0" prefWidth="184.0" promptText="Present Address" />
+                        <TextField fx:id="coachPhonenum" alignment="CENTER" layoutX="85.0" layoutY="379.0" prefHeight="26.0" prefWidth="184.0" promptText="Phone Number" />
+                        <ComboBox fx:id="coachGender" layoutX="87.0" layoutY="331.0" prefHeight="26.0" prefWidth="182.0" promptText="Choose your Gender...." />
+                        <ComboBox fx:id="coachStatus" layoutX="85.0" layoutY="427.0" prefHeight="25.0" prefWidth="184.0" promptText="Choose your Status...." />
+                        <Button layoutX="63.0" layoutY="501.0" mnemonicParsing="false" onAction="#addCoach" prefHeight="50.0" prefWidth="153.0" style="-fx-background-color: Transparent; -fx-border-color: #ffde59;" text="ADD" textFill="#ffde59" />
+                        <Button layoutX="63.0" layoutY="581.0" mnemonicParsing="false" onAction="#updateCoach" prefHeight="50.0" prefWidth="153.0" style="-fx-background-color: Transparent; -fx-border-color: #ffde59;" text="UPDATE" textFill="#ffde59" />
+                        <Button layoutX="63.0" layoutY="660.0" mnemonicParsing="false" onAction="#deleteCoach" prefHeight="50.0" prefWidth="153.0" style="-fx-background-color: Transparent; -fx-border-color: #ffde59;" text="CLEAR" textFill="#ffde59" />
+                        <TextField fx:id="coachId" alignment="CENTER" editable="false" layoutX="87.0" layoutY="173.0" prefHeight="26.0" prefWidth="184.0" text="ID" visible="false" />
+                        <Label layoutX="56.0" layoutY="175.0" text="ID :" textFill="#ffde59" visible="false">
+                            <font>
+                                <Font name="System Bold" size="14.0" />
+                            </font>
+                        </Label>
+                    </children>
+                </AnchorPane>
+                <AnchorPane fx:id="payment" layoutX="318.0" layoutY="25.0" prefHeight="742.0" prefWidth="1035.0" style="-fx-border-color: #FFDE59;" visible="false">
+                    <children>
+                        <TableView layoutX="29.0" layoutY="109.0" prefHeight="610.0" prefWidth="662.0">
+                            <columns>
+                                <TableColumn fx:id="payment_col_name" prefWidth="216.79995727539062" text="NAME" />
+                                <TableColumn fx:id="paynent_col_customerID" prefWidth="147.20001220703125" text="CUSTOMER ID" />
+                                <TableColumn fx:id="payment_col_startDate" prefWidth="106.4000244140625" text="START" />
+                                <TableColumn fx:id="payment_col_endDate" prefWidth="99.20001220703125" text="END" />
+                                <TableColumn fx:id="payment_col_status" prefWidth="94.4000244140625" text="STATUS" />
+                            </columns>
+                        </TableView>
+                        <AnchorPane layoutX="718.0" layoutY="110.0" prefHeight="565.0" prefWidth="272.0" style="-fx-border-color: #ffde59;">
+                            <children>
+                                <Label layoutX="41.0" layoutY="117.0" text="CUSTOMER ID:" textFill="#ffde59" />
+                                <Label layoutX="22.0" layoutY="156.0" text="CUSTOMER NAME:" textFill="#ffde59" />
+                                <Label layoutX="30.0" layoutY="324.0" text="Change:" textFill="#ffde59">
+                                    <font>
+                                        <Font size="18.0" />
+                                    </font>
+                                </Label>
+                                <Label fx:id="payment_change" layoutX="158.0" layoutY="324.0" prefHeight="27.0" prefWidth="49.0" text="₱0.00" textFill="WHITE">
+                                    <font>
+                                        <Font size="18.0" />
+                                    </font>
+                                </Label>
+                                <Button fx:id="goCoaches2" layoutX="22.0" layoutY="408.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="232.0" style="-fx-background-color: BLACK; -fx-border-color: #FFDE59;" text="PAY" textFill="#ffde59">
+                                    <font>
+                                        <Font size="20.0" />
+                                    </font>
+                                </Button>
+                                <ComboBox fx:id="payment_name" layoutX="137.0" layoutY="149.0" prefHeight="25.0" prefWidth="107.0" promptText="Choose..." />
+                                <ComboBox fx:id="payment_customerID" layoutX="138.0" layoutY="112.0" prefHeight="25.0" prefWidth="107.0" promptText="Choose..." />
+                                <Label layoutX="27.0" layoutY="286.0" text="Amount Paid:" textFill="#ffde59">
+                                    <font>
+                                        <Font size="18.0" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="26.0" layoutY="247.0" text="Total:" textFill="#ffde59">
+                                    <font>
+                                        <Font size="18.0" />
+                                    </font>
+                                </Label>
+                                <Label fx:id="payment_total" layoutX="158.0" layoutY="244.0" prefHeight="30.0" prefWidth="61.0" text="₱0.00" textFill="WHITE">
+                                    <font>
+                                        <Font size="18.0" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="80.0" layoutY="72.0" text="CUSTOMER DETAILS" textFill="#ffde59" />
+                                <TextField fx:id="payment_amountPay" layoutX="145.0" layoutY="287.0" prefHeight="26.0" prefWidth="107.0" promptText="0.0" />
+                            </children>
+                        </AnchorPane>
+                        <Label layoutX="407.0" layoutY="24.0" text="PAYMENT" textFill="#ffde59">
+                            <font>
+                                <Font name="System Bold" size="46.0" />
+                            </font>
+                        </Label>
+                    </children>
+                </AnchorPane>
+            </children>
+        </AnchorPane>
+    </children>
+</StackPane>
